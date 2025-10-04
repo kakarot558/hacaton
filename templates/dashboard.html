@@ -1,0 +1,9 @@
+{%extends "base.html"%}
+
+
+{% block body %} 
+<div class="Dashboard-content"><h1>Welcome, {{username}}</h1>
+<p>Welcome to your dashboard</p>
+<a href="{{ url_for('home') }}"></a>
+</div>
+{% endblock %}

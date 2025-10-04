@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>My Certifications - EduConnect Portal</title>
+{% endblock %}
+
+{% block body %}
+<section class="page-hero-section">
+    <div class="page-hero-content">
+        <h1>Earn & Showcase Your Certifications</h1>
+        <p>Validate your skills with industry-recognized certifications and boost your career prospects. Track your progress and display your achievements here.</p>
+        <a href="{{ url_for('courses') }}" class="button hero-button">Explore Certification Tracks</a>
+    </div>
+</section>
+
+<section class="homepage-section content-page-section">
+    <h2>My Certifications</h2>
+    <div class="grid-container certifications-grid">
+        <div class="certification-card">
+            <h3>Web Development Fundamentals</h3>
+            <p><strong>Issued By:</strong> EduConnect Institute</p>
+            <p><strong>Date:</strong> October 2023</p>
+            <a href="#" class="button button-secondary button-small">View Certificate</a>
+        </div>
+        <div class="certification-card">
+            <h3>Introduction to Data Science</h3>
+            <p><strong>Issued By:</strong> Global Tech Academy</p>
+            <p><strong>Date:</strong> September 2023</p>
+            <a href="#" class="button button-secondary button-small">View Certificate</a>
+        </div>
+        <div class="certification-card empty-card">
+            <h3>No new certifications yet!</h3>
+            <p>Start a course today to earn your next credential.</p>
+            <a href="{{ url_for('courses') }}" class="button button-primary button-small">Browse Courses</a>
+        </div>
+    </div>
+</section>
+
+<section class="homepage-section content-page-section bg-light">
+    <h2>Popular Certification Tracks</h2>
+    <div class="grid-container certifications-grid">
+        <div class="certification-track-card">
+            <h3>Certified Python Developer</h3>
+            <p>Master Python programming for various applications.</p>
+            <a href="{{ url_for('courses') }}" class="button button-primary button-small">View Track</a>
+        </div>
+        <div class="certification-track-card">
+            <h3>Digital Marketing Specialist</h3>
+            <p>Learn SEO, SEM, social media, and content marketing.</p>
+            <a href="{{ url_for('courses') }}" class="button button-primary button-small">View Track</a>
+        </div>
+        <div class="certification-track-card">
+            <h3>Cloud Computing Associate</h3>
+            <p>Understand fundamental cloud concepts and services.</p>
+            <a href="{{ url_for('courses') }}" class="button button-primary button-small">View Track</a>
+        </div>
+    </div>
+</section>
+
+<section class="homepage-section content-cta">
+    <h2>Ready to Boost Your Profile?</h2>
+    <p>Explore our extensive catalog of courses and certification programs designed to accelerate your career.</p>
+    <a href="{{ url_for('courses') }}" class="button hero-button">Find Your Next Certification</a>
+</section>
+{% endblock %}

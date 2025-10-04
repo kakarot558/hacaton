@@ -1,0 +1,43 @@
+
+{%extends "base.html"%}
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<section class="hero-section">
+    <div class="hero-content">
+        <h2>Your Gateway to Knowledge and Growth</h2>
+        <p>Explore a world of high-quality courses, competitive scholarships, and industry-recognized certifications to elevate your skills and career. Join EduConnect today!</p>
+        <a href="{{ url_for('courses') }}" class="hero-button">Explore Courses</a>
+    </div>
+</section>
+
+<section class="homepage-section content-features">
+    <h2>Why Choose EduConnect?</h2>
+    <div class="features-grid">
+        <div class="feature-item">
+            <h3>Diverse Course Catalog</h3>
+            <p>Access thousands of courses from top universities and industry experts across various fields.</p>
+        </div>
+        <div class="feature-item">
+            <h3>Exclusive Scholarships</h3>
+            <p>Discover and apply for scholarships tailored to your academic and professional goals.</p>
+        </div>
+        <div class="feature-item">
+            <h3>Recognized Certifications</h3>
+            <p>Earn certificates that boost your resume and validate your expertise to employers worldwide.</p>
+        </div>
+        <div class="feature-item">
+            <h3>Flexible Learning</h3>
+            <p>Learn at your own pace, anytime, anywhere, with our user-friendly platform and mobile access.</p>
+        </div>
+    </div>
+</section>
+
+<section class="homepage-section content-cta">
+    <h2>Ready to Transform Your Future?</h2>
+    <p>Sign up now to start your learning journey with EduConnect. It's free to get started!</p>
+    <a href="{{ url_for('sign_up') }}" class="button hero-button">Join EduConnect Now</a>
+</section>
+
+{% endblock %}

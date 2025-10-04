@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Courses - EduConnect Portal</title>
+{% endblock %}
+
+{% block body %}
+<section class="page-hero-section">
+    <div class="page-hero-content">
+        <h1>Explore Our Extensive Course Catalog</h1>
+        <p>Dive into thousands of courses covering the latest skills and hottest industries. Learn from experts and advance your career today.</p>
+        <a href="#featured-courses" class="button hero-button">Browse Featured Courses</a>
+    </div>
+</section>
+
+<section id="featured-courses" class="homepage-section content-page-section">
+    <h2>Featured Courses</h2>
+    <div class="grid-container course-grid">
+        <div class="course-card">
+            <img src="{{ url_for('static', filename='images/webdev.jpg') }}" alt="Web Development Course">
+            <h3>Full-Stack Web Development</h3>
+            <p>Learn front-end and back-end development with practical projects.</p>
+            <div class="course-meta">
+                <span><i class="icon-star"></i> 4.8</span>
+                <span><i class="icon-clock"></i> 80 hours</span>
+            </div>
+            <a href="#" class="button button-primary button-small">View Course</a>
+        </div>
+        <div class="course-card">
+            <img src="{{ url_for('static', filename='images/datasci.jpg') }}" alt="Data Science Course">
+            <h3>Data Science with Python</h3>
+            <p>Master data analysis, machine learning, and visualization.</p>
+            <div class="course-meta">
+                <span><i class="icon-star"></i> 4.7</span>
+                <span><i class="icon-clock"></i> 120 hours</span>
+            </div>
+            <a href="#" class="button button-primary button-small">View Course</a>
+        </div>
+        <div class="course-card">
+            <img src="{{ url_for('static', filename='images/digitalm.jpg') }}" alt="Digital Marketing Course">
+            <h3>Complete Digital Marketing</h3>
+            <p>From SEO to social media, grow your brand online effectively.</p>
+            <div class="course-meta">
+                <span><i class="icon-star"></i> 4.6</span>
+                <span><i class="icon-clock"></i> 60 hours</span>
+            </div>
+            <a href="#" class="button button-primary button-small">View Course</a>
+        </div>
+        <div class="course-card">
+            <img src="{{ url_for('static', filename='images/cloudc.jpg') }}" alt="Cloud Computing Course">
+            <h3>Cloud Computing Fundamentals</h3>
+            <p>An introduction to AWS, Azure, and Google Cloud platforms.</p>
+            <div class="course-meta">
+                <span><i class="icon-star"></i> 4.9</span>
+                <span><i class="icon-clock"></i> 75 hours</span>
+            </div>
+            <a href="#" class="button button-primary button-small">View Course</a>
+        </div>
+    </div>
+</section>
+
+<section class="homepage-section content-page-section bg-light">
+    <h2>Browse by Category</h2>
+    <div class="grid-container category-grid">
+        <a href="#" class="category-card">
+            <h3>Technology & IT</h3>
+            <p>Software Development, Cybersecurity, AI, Data Science</p>
+        </a>
+        <a href="#" class="category-card">
+            <h3>Business & Finance</h3>
+            <p>Marketing, Entrepreneurship, Accounting, Management</p>
+        </a>
+        <a href="#" class="category-card">
+            <h3>Arts & Design</h3>
+            <p>Graphic Design, Photography, UI/UX, Creative Writing</p>
+        </a>
+        <a href="#" class="category-card">
+            <h3>Health & Wellness</h3>
+            <p>Nutrition, Fitness, Psychology, Public Health</p>
+        </a>
+        <a href="#" class="category-card">
+            <h3>Personal Development</h3>
+            <p>Productivity, Leadership, Communication, Mindfulness</p>
+        </a>
+        <a href="#" class="category-card">
+            <h3>Languages</h3>
+            <p>English, Spanish, French, German, Mandarin</p>
+        </a>
+    </div>
+</section>
+
+<section class="homepage-section content-cta">
+    <h2>Can't Find What You're Looking For?</h2>
+    <p>Our catalog is constantly growing. Contact us for personalized recommendations or course requests.</p>
+    <a href="{{ url_for('contact') }}" class="button hero-button">Contact Support</a>
+</section>
+{% endblock %}

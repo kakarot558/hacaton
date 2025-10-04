@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>About Us - EduConnect Portal</title>
+{% endblock %}
+
+{% block body %}
+<section class="page-hero-section">
+    <div class="page-hero-content">
+        <h1>About EduConnect</h1>
+        <p>Empowering minds, fostering growth, and connecting learners worldwide with unparalleled educational opportunities.</p>
+    </div>
+</section>
+
+<section class="homepage-section content-page-section text-content-section">
+    <h2>Our Mission</h2>
+    <p>At EduConnect, our mission is to democratize education by providing a comprehensive, accessible, and high-quality learning platform. We believe that everyone, regardless of their background or location, deserves the chance to acquire new skills, achieve their academic aspirations, and unlock their full potential.</p>
+
+    <h2>Our Vision</h2>
+    <p>We envision a world where learning knows no bounds – a future where innovative technology seamlessly connects eager learners with expert educators, transformative courses, vital scholarships, and recognized certifications, paving the way for a more skilled and empowered global community.</p>
+</section>
+
+<section class="homepage-section content-page-section bg-light text-content-section">
+    <h2>Our Values</h2>
+    <div class="grid-container values-grid">
+        <div class="value-card">
+            <h3>Accessibility</h3>
+            <p>Breaking down barriers to education, making learning available to all.</p>
+        </div>
+        <div class="value-card">
+            <h3>Quality</h3>
+            <p>Committing to excellence in course content and learning experience.</p>
+        </div>
+        <div class="value-card">
+            <h3>Innovation</h3>
+            <p>Continuously evolving our platform with cutting-edge educational tools.</p>
+        </div>
+        <div class="value-card">
+            <h3>Empowerment</h3>
+            <p>Equipping individuals with knowledge and skills for a brighter future.</p>
+        </div>
+    </div>
+</section>
+
+<section class="homepage-section content-page-section text-content-section">
+    <h2>Our Story</h2>
+    <p>Founded in 2023, EduConnect began with a simple idea: to create a single, intuitive platform where individuals could seamlessly pursue education, apply for financial aid, and validate their expertise. From a small team of passionate educators and technologists, we've grown into a thriving community, constantly striving to enhance the learning experience and support our users' journeys.</p>
+    <p>We're proud to be a bridge to knowledge, connecting aspirations with achievements. Join us as we continue to build a smarter, more capable world.</p>
+</section>
+
+<section class="homepage-section content-cta">
+    <h2>Be a Part of Our Story</h2>
+    <p>Discover how EduConnect can help you achieve your educational and career goals.</p>
+    <a href="{{ url_for('sign_up') }}" class="button hero-button">Join EduConnect Now</a>
+</section>
+{% endblock %}

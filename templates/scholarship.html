@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Scholarships - EduConnect Portal</title>
+{% endblock %}
+
+{% block body %}
+<section class="page-hero-section">
+    <div class="page-hero-content">
+        <h1>Discover Your Future with Scholarships</h1>
+        <p>Unlock opportunities to fund your education. Explore a wide range of scholarships tailored to your academic goals and background.</p>
+        <a href="#available-scholarships" class="button hero-button">View Available Scholarships</a>
+    </div>
+</section>
+
+<section id="available-scholarships" class="homepage-section content-page-section">
+    <h2>Available Scholarships</h2>
+    <div class="filter-bar">
+        <input type="text" placeholder="Search scholarships..." class="search-input">
+        <select class="filter-select">
+            <option value="">All Fields</option>
+            <option value="tech">Technology</option>
+            <option value="business">Business</option>
+            <option value="art">Arts & Humanities</option>
+            <option value="science">Science</option>
+        </select>
+        <select class="filter-select">
+            <option value="">All Levels</option>
+            <option value="undergrad">Undergraduate</option>
+            <option value="grad">Graduate</option>
+            <option value="vocational">Vocational</option>
+        </select>
+        <button class="button button-primary filter-button">Apply Filters</button>
+    </div>
+
+    <div class="grid-container scholarship-grid">
+        <div class="scholarship-card">
+            <h3>Future Tech Leaders Scholarship</h3>
+            <p>For students pursuing degrees in Computer Science, AI, or Data Science.</p>
+            <p><strong>Amount:</strong> $10,000</p>
+            <p><strong>Deadline:</strong> December 15, 2023</p>
+            <a href="#" class="button button-primary button-small">Apply Now</a>
+        </div>
+        <div class="scholarship-card">
+            <h3>Global Business Innovators Grant</h3>
+            <p>Supports entrepreneurial students in business administration programs.</p>
+            <p><strong>Amount:</strong> $5,000</p>
+            <p><strong>Deadline:</strong> January 10, 2024</p>
+            <a href="#" class="button button-primary button-small">Apply Now</a>
+        </div>
+        <div class="scholarship-card">
+            <h3>Creative Arts & Design Fund</h3>
+            <p>Aimed at talented individuals in fine arts, graphic design, or music.</p>
+            <p><strong>Amount:</strong> $7,500</p>
+            <p><strong>Deadline:</strong> February 1, 2024</p>
+            <a href="#" class="button button-primary button-small">Apply Now</a>
+        </div>
+        <div class="scholarship-card">
+            <h3>STEM Research Fellowship</h3>
+            <p>For graduate students engaged in scientific research projects.</p>
+            <p><strong>Amount:</strong> $12,000</p>
+            <p><strong>Deadline:</strong> March 5, 2024</p>
+            <a href="#" class="button button-primary button-small">Apply Now</a>
+        </div>
+    </div>
+</section>
+
+<section class="homepage-section content-cta bg-light">
+    <h2>Don't Miss Out on Funding Opportunities!</h2>
+    <p>Sign up to receive personalized scholarship recommendations and application alerts.</p>
+    <a href="{{ url_for('sign_up') }}" class="button hero-button">Create an Account</a>
+</section>
+{% endblock %}
