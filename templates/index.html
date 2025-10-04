@@ -1,43 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholar ni Mayor - Welcome</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5; /* Light gray background */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-{%extends "base.html"%}
-{% block head %}
-{% endblock %}
+        .header {
+            background-color: #3f51b5; /* Dark blue */
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
 
-{% block body %}
-<section class="hero-section">
-    <div class="hero-content">
-        <h2>Your Gateway to Knowledge and Growth</h2>
-        <p>Explore a world of high-quality courses, competitive scholarships, and industry-recognized certifications to elevate your skills and career. Join EduConnect today!</p>
-        <a href="{{ url_for('courses') }}" class="hero-button">Explore Courses</a>
+        .header .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo {
+            width: 60px; /* Adjust logo size */
+            height: 60px;
+            margin-right: 15px;
+            background-color: white; /* To make the logo stand out if it's transparent */
+            border-radius: 50%; /* If logo is round */
+            padding: 5px;
+        }
+
+        .header .site-title {
+            color: white;
+            font-size: 1.8em;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 25px; /* Space between nav items */
+        }
+
+        .header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 500;
+            padding: 5px 0;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .header nav ul li a:hover,
+        .header nav ul li a.active {
+            color: #a7d9ff; /* Lighter blue on hover */
+            border-bottom-color: #a7d9ff;
+        }
+
+        .main-content-area {
+            flex-grow: 1;
+            padding: 40px 30px;
+            max-width: 1200px;
+            margin: 0 auto; /* Center the content */
+            display: grid;
+            grid-template-columns: 1fr; /* Default to single column */
+            gap: 30px;
+        }
+
+        .hero-section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 40px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-section h2 {
+            font-size: 2.8em;
+            color: #3f51b5;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1.3em;
+            color: #555;
+            max-width: 800px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .hero-section .action-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .hero-section .action-button {
+            display: inline-block;
+            background-color: #4CAF50; /* Green button */
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .hero-section .action-button:hover {
+            background-color: #43A047;
+            transform: translateY(-2px);
+        }
+
+        .hero-section .action-button.secondary {
+            background-color: #3f51b5; /* Blue button */
+        }
+
+        .hero-section .action-button.secondary:hover {
+            background-color: #303f9f;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .feature-card .icon {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 20px;
+            filter: invert(0.2) sepia(1) saturate(5) hue-rotate(100deg); /* Example: Tinting an SVG icon green */
+        }
+
+        .feature-card h3 {
+            font-size: 1.5em;
+            color: #3f51b5;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 1em;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .footer {
+            background-color: #3f51b5; /* Dark blue */
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+            font-size: 0.95em;
+            margin-top: 50px; /* Space from content */
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .header {
+                padding: 10px 20px;
+            }
+            .header .logo {
+                width: 50px;
+                height: 50px;
+            }
+            .header .site-title {
+                font-size: 1.5em;
+            }
+            .header nav ul {
+                gap: 15px;
+            }
+            .header nav ul li a {
+                font-size: 1em;
+            }
+            .main-content-area {
+                padding: 30px 20px;
+            }
+            .hero-section h2 {
+                font-size: 2.2em;
+            }
+            .hero-section p {
+                font-size: 1.1em;
+            }
+            .hero-section .action-button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-bottom: 10px;
+            }
+            .header .logo-container {
+                margin-bottom: 15px;
+            }
+            .header nav {
+                width: 100%;
+                margin-top: 10px;
+            }
+            .header nav ul {
+                flex-direction: column; /* Stack nav items vertically */
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .header nav ul li a {
+                width: fit-content; /* Ensure link doesn't stretch too wide */
+            }
+            .main-content-area {
+                padding: 20px 15px;
+            }
+            .hero-section {
+                padding: 30px 20px;
+            }
+            .hero-section h2 {
+                font-size: 1.8em;
+            }
+            .hero-section p {
+                font-size: 1em;
+            }
+            .hero-section .action-buttons {
+                flex-direction: column; /* Stack buttons vertically */
+                width: 100%;
+                gap: 15px;
+            }
+            .hero-section .action-button {
+                width: 100%;
+                text-align: center;
+            }
+            .features-grid {
+                grid-template-columns: 1fr; /* Single column for features */
+            }
+            .feature-card {
+                padding: 25px;
+            }
+            .footer {
+                padding: 20px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 10px 15px;
+            }
+            .header .logo {
+                width: 45px;
+                height: 45px;
+            }
+            .header .site-title {
+                font-size: 1.3em;
+            }
+            .header nav ul li a {
+                font-size: 0.95em;
+            }
+            .main-content-area {
+                padding: 15px 10px;
+            }
+            .hero-section {
+                padding: 25px 15px;
+            }
+            .hero-section h2 {
+                font-size: 1.6em;
+            }
+            .hero-section p {
+                font-size: 0.9em;
+            }
+            .hero-section .action-button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+            .feature-card .icon {
+                width: 60px;
+                height: 60px;
+            }
+            .feature-card h3 {
+                font-size: 1.3em;
+            }
+            .feature-card p {
+                font-size: 0.9em;
+            }
+            .footer {
+                padding: 15px 10px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <img src="/img/logo.png" alt="Padre Garcia Logo" class="logo">
+            <h1 class="site-title">Scholar ni Mayor</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Programs</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </nav>
     </div>
-</section>
 
-<section class="homepage-section content-features">
-    <h2>Why Choose EduConnect?</h2>
-    <div class="features-grid">
-        <div class="feature-item">
-            <h3>Diverse Course Catalog</h3>
-            <p>Access thousands of courses from top universities and industry experts across various fields.</p>
+    <div class="main-content-area">
+        <div class="hero-section">
+            <h2>Empowering Futures Through Education</h2>
+            <p>Providing opportunities for deserving students to achieve their academic dreams and contribute to a brighter community. Discover how we support the next generation of leaders.</p>
+            <div class="action-buttons">
+                <a href="#" class="action-button">Apply Now</a>
+                <a href="#" class="action-button secondary">Learn More</a>
+            </div>
         </div>
-        <div class="feature-item">
-            <h3>Exclusive Scholarships</h3>
-            <p>Discover and apply for scholarships tailored to your academic and professional goals.</p>
-        </div>
-        <div class="feature-item">
-            <h3>Recognized Certifications</h3>
-            <p>Earn certificates that boost your resume and validate your expertise to employers worldwide.</p>
-        </div>
-        <div class="feature-item">
-            <h3>Flexible Learning</h3>
-            <p>Learn at your own pace, anytime, anywhere, with our user-friendly platform and mobile access.</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="https://www.svgrepo.com/show/369931/award.svg" alt="Scholarship Icon" class="icon">
+                <h3>Scholarship Programs</h3>
+                <p>Explore our diverse range of scholarship programs tailored to various academic fields and student needs.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://www.svgrepo.com/show/441295/online-course.svg" alt="Guidance Icon" class="icon">
+                <h3>Academic Guidance</h3>
+                <p>We offer mentorship and support to help our scholars excel in their studies and overcome challenges.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://www.svgrepo.com/show/423719/community-team-group.svg" alt="Community Icon" class="icon">
+                <h3>Community Engagement</h3>
+                <p>Encouraging scholars to give back to the community through various projects and volunteer work.</p>
+            </div>
         </div>
     </div>
-</section>
 
-<section class="homepage-section content-cta">
-    <h2>Ready to Transform Your Future?</h2>
-    <p>Sign up now to start your learning journey with EduConnect. It's free to get started!</p>
-    <a href="{{ url_for('sign_up') }}" class="button hero-button">Join EduConnect Now</a>
-</section>
-
-{% endblock %}
+    <div class="footer">
+        <p>&copy; 2023 Scholar ni Mayor. All rights reserved.</p>
+        <p>Contact Us: (123) 456-7890 | info@scholarnimayor.gov.ph</p>
+    </div>
+</body>
+</html>
