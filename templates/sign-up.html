@@ -1,166 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scholar ni Mayor - Login</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholar ni Mayor - Register</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('/img/bg.jpg'); /* Replace with your actual full background image URL */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Ensures background covers entire viewport and stays fixed on scroll */
+            color: #333;
+        }
 
-    body {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #f5f5f5;
-    }
+        .container {
+            width: 90%; /* Responsive width */
+            max-width: 1000px; /* Max width for larger screens */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: row; /* Default for larger screens */
+            overflow: hidden; /* Ensures content doesn't spill */
+            min-height: 70vh; /* Minimum height for the container */
+        }
 
-    .container {
-      width: 100vw;
-      max-width: 95%;
-      height: 100vh;
-      background: url("img/bg.jpg") no-repeat center center/cover;
-      display: flex;
-      border: 5px solid #001f54; /* top & bottom blue border */
-      border-radius: 10px;
-      overflow: hidden;
-    }
+        .left-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
 
-    /* LEFT SIDE - LOGO */
-    .left {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: rgba(255,255,255,0.6); /* semi-transparent to highlight logo */
-    }
+        .logo {
+            max-width: 80%;
+            height: auto;
+            border-radius: 5px; /* Optional: subtle rounded corners for the logo */
+        }
 
-    .left img {
-      width: 280px;
-      max-width: 90%;
-      height: auto;
-    }
+        .right-section {
+            flex: 1; /* Allows form to take equal space with logo on larger screens */
+            background-color: white; /* Solid white background for the form */
+            padding: 40px 30px; /* Increased padding */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 
-    /* RIGHT SIDE - LOGIN CARD */
-    .right {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: rgba(255,255,255,0.85); /* white background for clarity */
-    }
+        .form-header {
+            font-size: 1.8em; /* Larger font size */
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
 
-    .login-box {
-      width: 80%;
-      max-width: 350px;
-      text-align: center;
-    }
+        .form-subheader {
+            font-size: 1.1em; /* Slightly larger */
+            color: #666;
+            margin-bottom: 25px; /* More space */
+        }
 
-    .login-box h2 {
-      font-size: 22px;
-      margin-bottom: 10px;
-      font-weight: bold;
-    }
+        .form-group {
+            margin-bottom: 18px; /* More space between fields */
+            width: 100%;
+            max-width: 350px; /* Max width for input fields */
+        }
 
-    .login-box h3 {
-      font-size: 15px;
-      margin-bottom: 15px;
-      color: #444;
-    }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: calc(100% - 24px); /* Account for padding */
+            padding: 14px 12px; /* Increased padding */
+            border: 1px solid #ddd;
+            border-radius: 8px; /* More rounded corners */
+            font-size: 1.05em;
+            box-sizing: border-box; /* Include padding in width */
+        }
 
-    .login-box input {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0;
-      border: 1px solid #aaa;
-      border-radius: 5px;
-    }
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start; /* Align text to the top */
+            margin-bottom: 25px;
+            font-size: 0.9em;
+            color: #666;
+            width: 100%;
+            max-width: 350px;
+            text-align: left;
+        }
 
-    .login-box button {
-      width: 100%;
-      padding: 12px;
-      background: #001f54;
-      color: white;
-      font-size: 14px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+            min-width: 16px; /* Ensure checkbox is visible */
+            min-height: 16px;
+            margin-top: 2px; /* Align checkbox better with text */
+        }
 
-    .login-box button:hover {
-      background: #003080;
-    }
+        .checkbox-group a {
+            color: #4CAF50; /* A more pleasant green for links */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .checkbox-group a:hover {
+            text-decoration: underline;
+        }
 
-    .login-box a {
-      display: block;
-      margin-top: 8px;
-      font-size: 12px;
-      color: #001f54;
-      text-decoration: none;
-    }
+        .btn-sign-in {
+            background-color: #4CAF50; /* Green button */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            max-width: 350px;
+            margin-bottom: 25px;
+        }
 
-    .login-box a:hover {
-      text-decoration: underline;
-    }
+        .btn-sign-in:hover {
+            background-color: #43A047; /* Darker green on hover */
+        }
 
-    .register {
-      margin-top: 15px;
-      font-size: 13px;
-    }
+        .login-link {
+            font-size: 1em;
+            color: #666;
+        }
 
-    .register a {
-      color: #0073e6;
-      font-weight: bold;
-    }
+        .login-link a {
+            color: #4CAF50; /* Green link */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
 
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        height: auto;
-      }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Stack sections vertically on small screens */
+                width: 95%; /* Take more width on small screens */
+                max-width: 500px; /* Prevent container from becoming too wide on tablets */
+                margin: 20px auto; /* Center with margin */
+            }
 
-      .left {
-        padding: 20px 0;
-      }
+            .left-section {
+                padding: 30px 20px; /* Adjust padding for smaller screens */
+                border-bottom: 1px solid #eee; /* Separator between sections */
+            }
 
-      .right {
-        padding: 20px;
-      }
+            .logo {
+                max-width: 60%; /* Smaller logo on small screens */
+            }
 
-      .login-box {
-        width: 100%;
-      }
-    }
-  </style>
+            .right-section {
+                padding: 30px 20px; /* Adjust padding for smaller screens */
+            }
+
+            .form-header {
+                font-size: 1.5em;
+            }
+
+            .form-subheader {
+                font-size: 1em;
+            }
+
+            .form-group input {
+                font-size: 1em;
+            }
+
+            .btn-sign-in {
+                font-size: 1.1em;
+                padding: 12px 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                border-radius: 0; /* No rounded corners on very small screens */
+                box-shadow: none; /* No shadow */
+                width: 100%; /* Full width on very small screens */
+                min-height: 100vh; /* Full height */
+            }
+            body {
+                background-attachment: scroll; /* Allow background to scroll on small devices */
+            }
+            .left-section {
+                padding: 20px 15px;
+            }
+            .logo {
+                max-width: 70%;
+            }
+            .right-section {
+                padding: 25px 15px;
+            }
+            .form-group, .checkbox-group, .btn-sign-in {
+                max-width: 100%; /* Allow full width for inputs and buttons */
+            }
+            .checkbox-group {
+                font-size: 0.85em;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <!-- LEFT SIDE (Logo) -->
-    <div class="left">
-      <img src="img/logo.png" alt="Municipality Logo">
-    </div>
-
-    <!-- RIGHT SIDE (Login Box) -->
-    <div class="right">
-      <div class="login-box">
-        <h2>SCHOLAR NI MAYOR</h2>
-        <h3>LOGIN</h3>
-        <input type="text" placeholder="Email / Username">
-        <input type="password" placeholder="Password">
-        <a href="#">Forgot Password?</a>
-        <button>SIGN IN</button>
-        <div class="register">
-          Don’t have an account yet? <a href="#">Register</a>
+    <div class="container">
+        <div class="left-section">
+            <img src="/img/logo.png" alt="Padre Garcia Logo" class="logo">
         </div>
-      </div>
+        <div class="right-section">
+            <div class="form-header">SCHOLAR NI MAYOR</div>
+            <div class="form-subheader">Register</div>
+            <div class="form-group">
+                <input type="text" placeholder="NAME">
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="EMAIL">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="PHONE">
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="PASSWORD">
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="CONFIRM PASSWORD">
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms">
+                <label for="terms">Creating an account you're okay with our <a href="#">Terms of Services</a>, <a href="#">Privacy Policy</a> and our default notification settings</label>
+            </div>
+            <button class="btn-sign-in">SIGN IN</button>
+            <div class="login-link">
+                Don't have an account yet? <a href="#">Register</a>
+            </div>
+        </div>
     </div>
-  </div>
 </body>
 </html>
